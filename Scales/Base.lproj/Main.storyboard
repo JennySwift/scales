@@ -35,7 +35,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="kLl-Ny-whv">
-                                <rect key="frame" x="20" y="83" width="335" height="501"/>
+                                <rect key="frame" x="20" y="144" width="335" height="443"/>
                                 <subviews>
                                     <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="Detail view content goes here" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="0XM-y9-sOw">
                                         <rect key="frame" x="54.5" y="0.0" width="226.5" height="20.5"/>
@@ -45,13 +45,13 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Amount" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rdf-eL-omb">
-                                        <rect key="frame" x="137.5" y="214.5" width="60" height="20.5"/>
+                                        <rect key="frame" x="137.5" y="185.5" width="60" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V07-f0-xDQ">
-                                        <rect key="frame" x="152" y="429" width="31" height="72"/>
+                                        <rect key="frame" x="152" y="371" width="31" height="72"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="50"/>
                                         <state key="normal" title="+"/>
                                         <connections>
@@ -66,9 +66,8 @@
                             <constraint firstItem="VUw-jc-0yf" firstAttribute="trailing" secondItem="kLl-Ny-whv" secondAttribute="trailing" constant="20" id="PTv-Tb-F74"/>
                             <constraint firstItem="kLl-Ny-whv" firstAttribute="leading" secondItem="VUw-jc-0yf" secondAttribute="leading" constant="20" id="W2P-XY-ufz"/>
                             <constraint firstItem="kLl-Ny-whv" firstAttribute="centerX" secondItem="svH-Pt-448" secondAttribute="centerX" id="amV-8r-7W2"/>
-                            <constraint firstItem="kLl-Ny-whv" firstAttribute="top" secondItem="VUw-jc-0yf" secondAttribute="top" constant="19" id="dKJ-W1-QTk"/>
-                            <constraint firstItem="kLl-Ny-whv" firstAttribute="centerY" secondItem="svH-Pt-448" secondAttribute="centerY" id="jmZ-kL-QqW"/>
-                            <constraint firstItem="VUw-jc-0yf" firstAttribute="bottom" secondItem="kLl-Ny-whv" secondAttribute="bottom" constant="83" id="ok8-ct-I1t"/>
+                            <constraint firstItem="kLl-Ny-whv" firstAttribute="top" secondItem="VUw-jc-0yf" secondAttribute="top" constant="80" id="h4K-0l-YI7"/>
+                            <constraint firstItem="VUw-jc-0yf" firstAttribute="bottom" secondItem="kLl-Ny-whv" secondAttribute="bottom" constant="80" id="iUR-Vk-mbu"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="VUw-jc-0yf"/>
                     </view>
