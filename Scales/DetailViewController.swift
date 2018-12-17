@@ -8,18 +8,41 @@
 
 import UIKit
 
+protocol DetailViewControllerDelegate: class {
+    func didUpdateFood(_ detailItem: Food)
+}
+
 class DetailViewController: UIViewController {
 
     @IBOutlet weak var detailDescriptionLabel: UILabel!
 
-
+    @IBOutlet weak var detailAmountLabel: UILabel!
+    
+    weak var delegate: DetailViewControllerDelegate?
+    
+//    var objects: [Food] = []
+    
+    @IBAction func add(_ sender: Any) {
+        detailItem?.amount += 1
+        guard let food = detailItem else {return}
+        delegate?.didUpdateFood(food)
+    }
+    
     func configureView() {
         // Update the user interface for the detail item.
         if let detail = detailItem {
             if let label = detailDescriptionLabel {
-                label.text = detail.description
+                label.text = detail.name
             }
+            updateAmountText()
         }
+    }
+    
+    func updateAmountText() {
+        if let detail = detailItem, let detailAmountLabel = detailAmountLabel {
+            detailAmountLabel.text = String(detail.amount)
+        }
+        
     }
 
     override func viewDidLoad() {
@@ -28,7 +51,7 @@ class DetailViewController: UIViewController {
         configureView()
     }
 
-    var detailItem: NSDate? {
+    var detailItem: Food? {
         didSet {
             // Update the view.
             configureView()

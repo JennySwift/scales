@@ -8,11 +8,29 @@
 
 import UIKit
 
+struct Food {
+    let name: String
+    var amount: Int
+}
+
 class MasterViewController: UITableViewController {
 
     var detailViewController: DetailViewController? = nil
-    var objects = [Any]()
-
+//    var objects = [Any]()
+//    var objects = [Food]()
+    var objects: [Food] = [
+        Food(name: "Potatoes", amount: 0),
+        Food(name: "Sweet Potatoes", amount: 0),
+        Food(name: "Corn", amount: 0),
+        Food(name: "Bananas", amount: 0),
+        Food(name: "Pumpkin", amount: 0),
+        Food(name: "Mango", amount: 0),
+        Food(name: "Watermelon", amount: 0)
+    ]
+    
+    func reloadData() {
+        self.tableView.reloadData()
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,11 +48,12 @@ class MasterViewController: UITableViewController {
     override func viewWillAppear(_ animated: Bool) {
         clearsSelectionOnViewWillAppear = splitViewController!.isCollapsed
         super.viewWillAppear(animated)
+        reloadData()
     }
 
     @objc
     func insertNewObject(_ sender: Any) {
-        objects.insert(NSDate(), at: 0)
+        objects.insert(Food(name: "Oats", amount: 0), at: 0)
         let indexPath = IndexPath(row: 0, section: 0)
         tableView.insertRows(at: [indexPath], with: .automatic)
     }
@@ -44,9 +63,10 @@ class MasterViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showDetail" {
             if let indexPath = tableView.indexPathForSelectedRow {
-                let object = objects[indexPath.row] as! NSDate
+                let object = objects[indexPath.row]
                 let controller = (segue.destination as! UINavigationController).topViewController as! DetailViewController
                 controller.detailItem = object
+                controller.delegate = self
                 controller.navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem
                 controller.navigationItem.leftItemsSupplementBackButton = true
             }
@@ -66,8 +86,9 @@ class MasterViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
 
-        let object = objects[indexPath.row] as! NSDate
-        cell.textLabel!.text = object.description
+        let object = objects[indexPath.row]
+        cell.textLabel!.text = object.name
+        cell.detailTextLabel!.text = String(object.amount)
         return cell
     }
 
@@ -85,6 +106,16 @@ class MasterViewController: UITableViewController {
         }
     }
 
+}
 
+extension MasterViewController: DetailViewControllerDelegate {
+    func didUpdateFood(_ food: Food) {
+        if let indexPath = tableView.indexPathForSelectedRow {
+            let index = indexPath[1]
+            objects[index].amount += 1
+        }
+        
+//        tableView.reloadData()
+    }
 }
 
