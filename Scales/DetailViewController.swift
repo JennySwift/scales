@@ -22,6 +22,7 @@ class DetailViewController: UIViewController {
     weak var delegate: DetailViewControllerDelegate?
     
     func addFromInputField() -> Void {
+        print("adding")
         if let value = additionTextField.text {
             print(value)
             if let valueAsInt = Int(value) {

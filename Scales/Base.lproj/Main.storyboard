@@ -34,8 +34,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="kLl-Ny-whv">
-                                <rect key="frame" x="20" y="144" width="335" height="443"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="kLl-Ny-whv">
+                                <rect key="frame" x="20" y="84" width="335" height="503"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rdf-eL-omb">
                                         <rect key="frame" x="150" y="0.0" width="35" height="68.5"/>
@@ -43,30 +43,33 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="+" textAlignment="center" minimumFontSize="30" translatesAutoresizingMaskIntoConstraints="NO" id="1og-51-JNQ">
-                                        <rect key="frame" x="8" y="195" width="319" height="61"/>
-                                        <nil key="textColor"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="47"/>
-                                        <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="done"/>
-                                        <connections>
-                                            <outlet property="delegate" destination="JEX-9P-axG" id="NTH-6c-rIh"/>
-                                        </connections>
-                                    </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="-" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AkK-jD-QGb">
-                                        <rect key="frame" x="8" y="382" width="319" height="61"/>
-                                        <nil key="textColor"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="47"/>
-                                        <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="done"/>
-                                        <connections>
-                                            <outlet property="delegate" destination="JEX-9P-axG" id="YS9-ao-R6B"/>
-                                        </connections>
-                                    </textField>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="xiY-Lf-cJG">
+                                        <rect key="frame" x="0.0" y="68.5" width="335" height="434.5"/>
+                                        <subviews>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="+" textAlignment="center" minimumFontSize="30" translatesAutoresizingMaskIntoConstraints="NO" id="1og-51-JNQ">
+                                                <rect key="frame" x="0.0" y="187" width="163.5" height="61"/>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="47"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="done"/>
+                                                <connections>
+                                                    <outlet property="delegate" destination="JEX-9P-axG" id="NTH-6c-rIh"/>
+                                                </connections>
+                                            </textField>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="-" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AkK-jD-QGb">
+                                                <rect key="frame" x="171.5" y="187" width="163.5" height="61"/>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="47"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="done"/>
+                                                <connections>
+                                                    <outlet property="delegate" destination="JEX-9P-axG" id="YS9-ao-R6B"/>
+                                                </connections>
+                                            </textField>
+                                        </subviews>
+                                    </stackView>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="1og-51-JNQ" firstAttribute="leading" secondItem="kLl-Ny-whv" secondAttribute="leading" constant="8" id="74f-WU-xfg"/>
-                                    <constraint firstItem="AkK-jD-QGb" firstAttribute="leading" secondItem="kLl-Ny-whv" secondAttribute="leading" constant="8" id="WZP-tx-wAE"/>
-                                    <constraint firstAttribute="trailing" secondItem="1og-51-JNQ" secondAttribute="trailing" constant="8" id="p3Y-KY-ILl"/>
-                                    <constraint firstAttribute="trailing" secondItem="AkK-jD-QGb" secondAttribute="trailing" constant="8" id="xcp-ty-Z2G"/>
+                                    <constraint firstAttribute="trailing" secondItem="xiY-Lf-cJG" secondAttribute="trailing" id="QYQ-qj-i2Z"/>
+                                    <constraint firstItem="xiY-Lf-cJG" firstAttribute="leading" secondItem="kLl-Ny-whv" secondAttribute="leading" id="ddk-MB-TVT"/>
                                 </constraints>
                             </stackView>
                         </subviews>
@@ -75,7 +78,7 @@
                             <constraint firstItem="VUw-jc-0yf" firstAttribute="trailing" secondItem="kLl-Ny-whv" secondAttribute="trailing" constant="20" id="PTv-Tb-F74"/>
                             <constraint firstItem="kLl-Ny-whv" firstAttribute="leading" secondItem="VUw-jc-0yf" secondAttribute="leading" constant="20" id="W2P-XY-ufz"/>
                             <constraint firstItem="kLl-Ny-whv" firstAttribute="centerX" secondItem="svH-Pt-448" secondAttribute="centerX" id="amV-8r-7W2"/>
-                            <constraint firstItem="kLl-Ny-whv" firstAttribute="top" secondItem="VUw-jc-0yf" secondAttribute="top" constant="80" id="h4K-0l-YI7"/>
+                            <constraint firstItem="kLl-Ny-whv" firstAttribute="top" secondItem="VUw-jc-0yf" secondAttribute="top" constant="20" id="h4K-0l-YI7"/>
                             <constraint firstItem="VUw-jc-0yf" firstAttribute="bottom" secondItem="kLl-Ny-whv" secondAttribute="bottom" constant="80" id="iUR-Vk-mbu"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="VUw-jc-0yf"/>
