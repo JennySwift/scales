@@ -49,9 +49,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" returnKeyType="done"/>
                                         <connections>
-                                            <action selector="editingDidEnd:" destination="JEX-9P-axG" eventType="editingDidEnd" id="5xH-GW-Efk"/>
-                                            <action selector="editingDidEnd:forEvent:" destination="JEX-9P-axG" eventType="editingDidEnd" id="2xG-pZ-R8T"/>
-                                            <action selector="valueChanged:forEvent:" destination="JEX-9P-axG" eventType="valueChanged" id="7Jf-1D-VOC"/>
+                                            <outlet property="delegate" destination="JEX-9P-axG" id="NTH-6c-rIh"/>
                                         </connections>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V07-f0-xDQ">
@@ -80,6 +78,7 @@
                     <connections>
                         <outlet property="detailAmountLabel" destination="rdf-eL-omb" id="R7i-1G-Jbm"/>
                         <outlet property="detailHeader" destination="mOI-FS-AaM" id="bKe-4q-db8"/>
+                        <outlet property="textField" destination="1og-51-JNQ" id="M6Y-3a-TJj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FJe-Yq-33r" sceneMemberID="firstResponder"/>

@@ -16,6 +16,7 @@ class DetailViewController: UIViewController {
 
     @IBOutlet weak var detailHeader: UINavigationItem!
     @IBOutlet weak var detailAmountLabel: UILabel!
+    @IBOutlet weak var textField: UITextField!
     
     weak var delegate: DetailViewControllerDelegate?
     
@@ -46,6 +47,13 @@ class DetailViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         configureView()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(DetailViewController.keyboardWillHide),
+                                               name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    
+    @objc func keyboardWillHide(_ notification: NSNotification) {
+       print("hiding!")
     }
 
     var detailItem: Food? {
@@ -54,7 +62,18 @@ class DetailViewController: UIViewController {
             configureView()
         }
     }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
 
 
+}
+
+extension DetailViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
 }
 
