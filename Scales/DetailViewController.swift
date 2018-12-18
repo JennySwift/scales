@@ -19,6 +19,11 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var additionTextField: UITextField!
     @IBOutlet weak var subtractionTextField: UITextField!
     
+    @IBAction func copyToClipboard(_ sender: Any) {
+        if let detail = detailItem {
+            UIPasteboard.general.string = String(detail.amount)
+        }
+    }
     weak var delegate: DetailViewControllerDelegate?
     
     var action = Action.addition

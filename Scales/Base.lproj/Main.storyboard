@@ -44,10 +44,10 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="xiY-Lf-cJG">
-                                        <rect key="frame" x="0.0" y="68.5" width="335" height="434.5"/>
+                                        <rect key="frame" x="0.0" y="68.5" width="335" height="404.5"/>
                                         <subviews>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="+" textAlignment="center" minimumFontSize="30" translatesAutoresizingMaskIntoConstraints="NO" id="1og-51-JNQ">
-                                                <rect key="frame" x="0.0" y="187" width="163.5" height="61"/>
+                                                <rect key="frame" x="0.0" y="172" width="163.5" height="61"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="47"/>
                                                 <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="done"/>
@@ -57,7 +57,7 @@
                                                 </connections>
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="-" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AkK-jD-QGb">
-                                                <rect key="frame" x="171.5" y="187" width="163.5" height="61"/>
+                                                <rect key="frame" x="171.5" y="172" width="163.5" height="61"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="47"/>
                                                 <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="done"/>
@@ -68,6 +68,13 @@
                                             </textField>
                                         </subviews>
                                     </stackView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vbo-WC-JHq">
+                                        <rect key="frame" x="105.5" y="473" width="124" height="30"/>
+                                        <state key="normal" title="Copy to Clipboard"/>
+                                        <connections>
+                                            <action selector="copyToClipboard:" destination="JEX-9P-axG" eventType="touchUpInside" id="Nlw-51-ABf"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="xiY-Lf-cJG" secondAttribute="trailing" id="QYQ-qj-i2Z"/>
