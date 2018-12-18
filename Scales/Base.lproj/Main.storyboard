@@ -35,7 +35,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="kLl-Ny-whv">
-                                <rect key="frame" x="20" y="84" width="335" height="503"/>
+                                <rect key="frame" x="20" y="84" width="335" height="563"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rdf-eL-omb">
                                         <rect key="frame" x="150" y="0.0" width="35" height="68.5"/>
@@ -68,17 +68,32 @@
                                             </textField>
                                         </subviews>
                                     </stackView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vbo-WC-JHq">
-                                        <rect key="frame" x="105.5" y="473" width="124" height="30"/>
-                                        <state key="normal" title="Copy to Clipboard"/>
-                                        <connections>
-                                            <action selector="copyToClipboard:" destination="JEX-9P-axG" eventType="touchUpInside" id="Nlw-51-ABf"/>
-                                        </connections>
-                                    </button>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="7mb-Dv-ppO">
+                                        <rect key="frame" x="0.0" y="473" width="335" height="90"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vbo-WC-JHq">
+                                                <rect key="frame" x="0.0" y="30" width="124" height="30"/>
+                                                <state key="normal" title="Copy to Clipboard"/>
+                                                <connections>
+                                                    <action selector="copyToClipboard:" destination="JEX-9P-axG" eventType="touchUpInside" id="Nlw-51-ABf"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="25r-3q-sUc">
+                                                <rect key="frame" x="296" y="30" width="39" height="30"/>
+                                                <state key="normal" title="Reset"/>
+                                                <connections>
+                                                    <action selector="reset:" destination="JEX-9P-axG" eventType="touchUpInside" id="TDN-eZ-dPj"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
                                 </subviews>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="xiY-Lf-cJG" secondAttribute="trailing" id="QYQ-qj-i2Z"/>
+                                    <constraint firstItem="7mb-Dv-ppO" firstAttribute="top" secondItem="kLl-Ny-whv" secondAttribute="top" constant="473" id="Qs4-Wn-w8f"/>
+                                    <constraint firstAttribute="trailing" secondItem="7mb-Dv-ppO" secondAttribute="trailing" id="a2b-yn-Lzd"/>
                                     <constraint firstItem="xiY-Lf-cJG" firstAttribute="leading" secondItem="kLl-Ny-whv" secondAttribute="leading" id="ddk-MB-TVT"/>
+                                    <constraint firstItem="7mb-Dv-ppO" firstAttribute="leading" secondItem="kLl-Ny-whv" secondAttribute="leading" id="tGf-iK-wuO"/>
                                 </constraints>
                             </stackView>
                         </subviews>
@@ -88,7 +103,7 @@
                             <constraint firstItem="kLl-Ny-whv" firstAttribute="leading" secondItem="VUw-jc-0yf" secondAttribute="leading" constant="20" id="W2P-XY-ufz"/>
                             <constraint firstItem="kLl-Ny-whv" firstAttribute="centerX" secondItem="svH-Pt-448" secondAttribute="centerX" id="amV-8r-7W2"/>
                             <constraint firstItem="kLl-Ny-whv" firstAttribute="top" secondItem="VUw-jc-0yf" secondAttribute="top" constant="20" id="h4K-0l-YI7"/>
-                            <constraint firstItem="VUw-jc-0yf" firstAttribute="bottom" secondItem="kLl-Ny-whv" secondAttribute="bottom" constant="80" id="iUR-Vk-mbu"/>
+                            <constraint firstItem="VUw-jc-0yf" firstAttribute="bottom" secondItem="kLl-Ny-whv" secondAttribute="bottom" constant="20" id="r7d-Dj-cPL"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="VUw-jc-0yf"/>
                     </view>

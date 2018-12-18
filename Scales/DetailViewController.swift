@@ -19,6 +19,12 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var additionTextField: UITextField!
     @IBOutlet weak var subtractionTextField: UITextField!
     
+    @IBAction func reset(_ sender: Any) {
+        detailItem?.amount = 0
+        guard let food = detailItem else {return}
+        updateAmountInMasterView(food)
+    }
+    
     @IBAction func copyToClipboard(_ sender: Any) {
         if let detail = detailItem {
             UIPasteboard.general.string = String(detail.amount)
@@ -41,6 +47,12 @@ class DetailViewController: UIViewController {
         print("addition focused")
     }
     
+    fileprivate func updateAmountInMasterView(_ food: Food) {
+        if let newAmount = detailItem?.amount {
+            delegate?.didUpdateFood(food, newAmount)
+        }
+    }
+    
     func addFromInputField() -> Void {
         switch action {
         case Action.addition:
@@ -48,9 +60,7 @@ class DetailViewController: UIViewController {
                 if let valueAsInt = Int(value) {
                     detailItem?.amount += valueAsInt
                     guard let food = detailItem else {return}
-                    if let newAmount = detailItem?.amount {
-                        delegate?.didUpdateFood(food, newAmount)
-                    }
+                    updateAmountInMasterView(food)
                     additionTextField.text = ""
                 }
                 
@@ -60,9 +70,7 @@ class DetailViewController: UIViewController {
                 if let valueAsInt = Int(value) {
                     detailItem?.amount -= valueAsInt
                     guard let food = detailItem else {return}
-                    if let newAmount = detailItem?.amount {
-                        delegate?.didUpdateFood(food, newAmount)
-                    }
+                    updateAmountInMasterView(food)
                     subtractionTextField.text = ""
                 }
                 
