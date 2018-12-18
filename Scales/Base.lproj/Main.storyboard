@@ -37,19 +37,23 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="kLl-Ny-whv">
                                 <rect key="frame" x="20" y="144" width="335" height="443"/>
                                 <subviews>
-                                    <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="Detail view content goes here" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="0XM-y9-sOw">
-                                        <rect key="frame" x="54.5" y="0.0" width="226.5" height="20.5"/>
-                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rdf-eL-omb">
-                                        <rect key="frame" x="150" y="161.5" width="35" height="68.5"/>
+                                        <rect key="frame" x="150" y="0.0" width="35" height="68.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="57"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="0" textAlignment="center" minimumFontSize="30" translatesAutoresizingMaskIntoConstraints="NO" id="1og-51-JNQ">
+                                        <rect key="frame" x="152.5" y="205" width="30" height="30"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                                        <connections>
+                                            <action selector="editingDidEnd:" destination="JEX-9P-axG" eventType="editingDidEnd" id="5xH-GW-Efk"/>
+                                            <action selector="editingDidEnd:forEvent:" destination="JEX-9P-axG" eventType="editingDidEnd" id="2xG-pZ-R8T"/>
+                                            <action selector="valueChanged:forEvent:" destination="JEX-9P-axG" eventType="valueChanged" id="7Jf-1D-VOC"/>
+                                        </connections>
+                                    </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V07-f0-xDQ">
                                         <rect key="frame" x="152" y="371" width="31" height="72"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="50"/>
@@ -75,7 +79,7 @@
                     <navigationItem key="navigationItem" title="Detail" id="mOI-FS-AaM"/>
                     <connections>
                         <outlet property="detailAmountLabel" destination="rdf-eL-omb" id="R7i-1G-Jbm"/>
-                        <outlet property="detailDescriptionLabel" destination="0XM-y9-sOw" id="deQ-Na-JPF"/>
+                        <outlet property="detailHeader" destination="mOI-FS-AaM" id="bKe-4q-db8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FJe-Yq-33r" sceneMemberID="firstResponder"/>

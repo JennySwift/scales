@@ -14,8 +14,7 @@ protocol DetailViewControllerDelegate: class {
 
 class DetailViewController: UIViewController {
 
-    @IBOutlet weak var detailDescriptionLabel: UILabel!
-
+    @IBOutlet weak var detailHeader: UINavigationItem!
     @IBOutlet weak var detailAmountLabel: UILabel!
     
     weak var delegate: DetailViewControllerDelegate?
@@ -31,9 +30,7 @@ class DetailViewController: UIViewController {
     func configureView() {
         // Update the user interface for the detail item.
         if let detail = detailItem {
-            if let label = detailDescriptionLabel {
-                label.text = detail.name
-            }
+            detailHeader.title = detail.name
             updateAmountText()
         }
     }
