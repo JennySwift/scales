@@ -9,7 +9,7 @@
 import UIKit
 
 protocol DetailViewControllerDelegate: class {
-    func didUpdateFood(_ detailItem: Food)
+    func didUpdateFood(_ detailItem: Food, _ byAmount: Int)
 }
 
 class DetailViewController: UIViewController {
@@ -25,7 +25,19 @@ class DetailViewController: UIViewController {
     @IBAction func add(_ sender: Any) {
         detailItem?.amount += 1
         guard let food = detailItem else {return}
-        delegate?.didUpdateFood(food)
+        delegate?.didUpdateFood(food, 1)
+    }
+    
+    func addFromInputField() -> Void {
+        if let value = textField.text {
+            print(value)
+            if let valueAsInt = Int(value) {
+                detailItem?.amount += valueAsInt
+                guard let food = detailItem else {return}
+                delegate?.didUpdateFood(food, valueAsInt)
+            }
+            
+        }
     }
     
     func configureView() {
@@ -54,6 +66,8 @@ class DetailViewController: UIViewController {
     
     @objc func keyboardWillHide(_ notification: NSNotification) {
        print("hiding!")
+        
+        addFromInputField()
     }
 
     var detailItem: Food? {

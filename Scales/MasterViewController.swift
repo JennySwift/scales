@@ -109,10 +109,10 @@ class MasterViewController: UITableViewController {
 }
 
 extension MasterViewController: DetailViewControllerDelegate {
-    func didUpdateFood(_ food: Food) {
+    func didUpdateFood(_ food: Food, _ byAmount: Int) {
         if let indexPath = tableView.indexPathForSelectedRow {
             let index = indexPath[1]
-            objects[index].amount += 1
+            objects[index].amount += byAmount
         }
         
 //        tableView.reloadData()
