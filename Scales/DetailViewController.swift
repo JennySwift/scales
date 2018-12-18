@@ -63,6 +63,19 @@ class DetailViewController: UIViewController {
         
         NotificationCenter.default.addObserver(self, selector: #selector(DetailViewController.keyboardWillHide),
                                                name: UIResponder.keyboardWillHideNotification, object: nil)
+        
+        
+        
+        //For hiding keyboard when user taps outside
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        
+        tap.cancelsTouchesInView = false
+        
+        view.addGestureRecognizer(tap)
+    }
+    
+    @objc func dismissKeyboard() {
+        textField.resignFirstResponder()
     }
     
     @objc func keyboardWillHide(_ notification: NSNotification) {
