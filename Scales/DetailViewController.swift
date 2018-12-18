@@ -35,6 +35,7 @@ class DetailViewController: UIViewController {
                 detailItem?.amount += valueAsInt
                 guard let food = detailItem else {return}
                 delegate?.didUpdateFood(food, valueAsInt)
+                textField.text = ""
             }
             
         }
@@ -65,8 +66,6 @@ class DetailViewController: UIViewController {
     }
     
     @objc func keyboardWillHide(_ notification: NSNotification) {
-       print("hiding!")
-        
         addFromInputField()
     }
 
