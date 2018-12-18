@@ -43,8 +43,8 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="0" textAlignment="center" minimumFontSize="30" translatesAutoresizingMaskIntoConstraints="NO" id="1og-51-JNQ">
-                                        <rect key="frame" x="8" y="189.5" width="319" height="61"/>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="+" textAlignment="center" minimumFontSize="30" translatesAutoresizingMaskIntoConstraints="NO" id="1og-51-JNQ">
+                                        <rect key="frame" x="8" y="195" width="319" height="61"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="47"/>
                                         <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="done"/>
@@ -52,18 +52,21 @@
                                             <outlet property="delegate" destination="JEX-9P-axG" id="NTH-6c-rIh"/>
                                         </connections>
                                     </textField>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V07-f0-xDQ">
-                                        <rect key="frame" x="152" y="371" width="31" height="72"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="50"/>
-                                        <state key="normal" title="+"/>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="-" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AkK-jD-QGb">
+                                        <rect key="frame" x="8" y="382" width="319" height="61"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="47"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="done"/>
                                         <connections>
-                                            <action selector="add:" destination="JEX-9P-axG" eventType="touchUpInside" id="xc1-mG-Y8q"/>
+                                            <outlet property="delegate" destination="JEX-9P-axG" id="YS9-ao-R6B"/>
                                         </connections>
-                                    </button>
+                                    </textField>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="1og-51-JNQ" firstAttribute="leading" secondItem="kLl-Ny-whv" secondAttribute="leading" constant="8" id="74f-WU-xfg"/>
+                                    <constraint firstItem="AkK-jD-QGb" firstAttribute="leading" secondItem="kLl-Ny-whv" secondAttribute="leading" constant="8" id="WZP-tx-wAE"/>
                                     <constraint firstAttribute="trailing" secondItem="1og-51-JNQ" secondAttribute="trailing" constant="8" id="p3Y-KY-ILl"/>
+                                    <constraint firstAttribute="trailing" secondItem="AkK-jD-QGb" secondAttribute="trailing" constant="8" id="xcp-ty-Z2G"/>
                                 </constraints>
                             </stackView>
                         </subviews>
@@ -80,9 +83,10 @@
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Detail" id="mOI-FS-AaM"/>
                     <connections>
+                        <outlet property="additionTextField" destination="1og-51-JNQ" id="c92-rr-cjI"/>
                         <outlet property="detailAmountLabel" destination="rdf-eL-omb" id="R7i-1G-Jbm"/>
                         <outlet property="detailHeader" destination="mOI-FS-AaM" id="bKe-4q-db8"/>
-                        <outlet property="textField" destination="1og-51-JNQ" id="M6Y-3a-TJj"/>
+                        <outlet property="subtractionTextField" destination="AkK-jD-QGb" id="U1k-3f-Z6C"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FJe-Yq-33r" sceneMemberID="firstResponder"/>

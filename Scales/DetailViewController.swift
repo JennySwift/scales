@@ -16,7 +16,8 @@ class DetailViewController: UIViewController {
 
     @IBOutlet weak var detailHeader: UINavigationItem!
     @IBOutlet weak var detailAmountLabel: UILabel!
-    @IBOutlet weak var textField: UITextField!
+    @IBOutlet weak var additionTextField: UITextField!
+    @IBOutlet weak var subtractionTextField: UITextField!
     
     weak var delegate: DetailViewControllerDelegate?
     
@@ -29,13 +30,13 @@ class DetailViewController: UIViewController {
     }
     
     func addFromInputField() -> Void {
-        if let value = textField.text {
+        if let value = additionTextField.text {
             print(value)
             if let valueAsInt = Int(value) {
                 detailItem?.amount += valueAsInt
                 guard let food = detailItem else {return}
                 delegate?.didUpdateFood(food, valueAsInt)
-                textField.text = ""
+                additionTextField.text = ""
             }
             
         }
@@ -75,7 +76,8 @@ class DetailViewController: UIViewController {
     }
     
     @objc func dismissKeyboard() {
-        textField.resignFirstResponder()
+        additionTextField.resignFirstResponder()
+        subtractionTextField.resignFirstResponder()
     }
     
     @objc func keyboardWillHide(_ notification: NSNotification) {
