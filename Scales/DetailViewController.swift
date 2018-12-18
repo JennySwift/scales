@@ -9,7 +9,7 @@
 import UIKit
 
 protocol DetailViewControllerDelegate: class {
-    func didUpdateFood(_ detailItem: Food, _ byAmount: Int)
+    func didUpdateFood(_ detailItem: Food, _ newAmount: Int)
 }
 
 class DetailViewController: UIViewController {
@@ -21,18 +21,49 @@ class DetailViewController: UIViewController {
     
     weak var delegate: DetailViewControllerDelegate?
     
+    var action = Action.addition
+    
+    enum Action {
+        case addition
+        case subtraction
+    }
+    
+    @IBAction func subtractionInputFocused(_ sender: Any) {
+        print("subtraction focused")
+    }
+    
+    @IBAction func additionInputFocused(_ sender: Any) {
+        print("addition focused")
+    }
+    
     func addFromInputField() -> Void {
-        print("adding")
-        if let value = additionTextField.text {
-            print(value)
-            if let valueAsInt = Int(value) {
-                detailItem?.amount += valueAsInt
-                guard let food = detailItem else {return}
-                delegate?.didUpdateFood(food, valueAsInt)
-                additionTextField.text = ""
+        switch action {
+        case Action.addition:
+            if let value = additionTextField.text {
+                if let valueAsInt = Int(value) {
+                    detailItem?.amount += valueAsInt
+                    guard let food = detailItem else {return}
+                    if let newAmount = detailItem?.amount {
+                        delegate?.didUpdateFood(food, newAmount)
+                    }
+                    additionTextField.text = ""
+                }
+                
             }
-            
+        case Action.subtraction:
+            if let value = subtractionTextField.text {
+                if let valueAsInt = Int(value) {
+                    detailItem?.amount -= valueAsInt
+                    guard let food = detailItem else {return}
+                    if let newAmount = detailItem?.amount {
+                        delegate?.didUpdateFood(food, newAmount)
+                    }
+                    subtractionTextField.text = ""
+                }
+                
+            }
         }
+        
     }
     
     func configureView() {
@@ -94,6 +125,16 @@ class DetailViewController: UIViewController {
 extension DetailViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
+        return true
+    }
+    
+    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+        if textField == additionTextField {
+            action = Action.addition
+        }
+        if textField == subtractionTextField {
+            action = Action.subtraction
+        }
         return true
     }
 }

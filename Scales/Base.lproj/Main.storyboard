@@ -52,6 +52,7 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="47"/>
                                                 <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="done"/>
                                                 <connections>
+                                                    <action selector="additionInputFocused:" destination="JEX-9P-axG" eventType="touchUpInside" id="8OT-fR-GAb"/>
                                                     <outlet property="delegate" destination="JEX-9P-axG" id="NTH-6c-rIh"/>
                                                 </connections>
                                             </textField>
@@ -61,6 +62,7 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="47"/>
                                                 <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="done"/>
                                                 <connections>
+                                                    <action selector="subtractionInputFocused:" destination="JEX-9P-axG" eventType="touchUpInside" id="xHq-pN-lza"/>
                                                     <outlet property="delegate" destination="JEX-9P-axG" id="YS9-ao-R6B"/>
                                                 </connections>
                                             </textField>
