@@ -21,14 +21,6 @@ class DetailViewController: UIViewController {
     
     weak var delegate: DetailViewControllerDelegate?
     
-//    var objects: [Food] = []
-    
-    @IBAction func add(_ sender: Any) {
-        detailItem?.amount += 1
-        guard let food = detailItem else {return}
-        delegate?.didUpdateFood(food, 1)
-    }
-    
     func addFromInputField() -> Void {
         if let value = additionTextField.text {
             print(value)
