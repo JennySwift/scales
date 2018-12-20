@@ -8,6 +8,7 @@
 
 import UIKit
 import SwiftEntryKit
+import AVFoundation
 
 protocol DetailViewControllerDelegate: class {
     func didUpdateFood(_ detailItem: Food, _ newAmount: Int)
@@ -30,6 +31,7 @@ class DetailViewController: UIViewController {
         if let detail = detailItem {
             UIPasteboard.general.string = String(detail.amount)
             showNote()
+            playSound()
         }
     }
     weak var delegate: DetailViewControllerDelegate?
@@ -39,6 +41,10 @@ class DetailViewController: UIViewController {
     enum Action {
         case addition
         case subtraction
+    }
+    
+    func playSound() -> Void {
+        AudioServicesPlaySystemSound(1103)
     }
     
     func getNoteAttributes() -> EKAttributes {
