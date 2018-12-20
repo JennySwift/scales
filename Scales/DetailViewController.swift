@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftEntryKit
 
 protocol DetailViewControllerDelegate: class {
     func didUpdateFood(_ detailItem: Food, _ newAmount: Int)
@@ -28,6 +29,7 @@ class DetailViewController: UIViewController {
     @IBAction func copyToClipboard(_ sender: Any) {
         if let detail = detailItem {
             UIPasteboard.general.string = String(detail.amount)
+            showNote()
         }
     }
     weak var delegate: DetailViewControllerDelegate?
@@ -37,6 +39,25 @@ class DetailViewController: UIViewController {
     enum Action {
         case addition
         case subtraction
+    }
+    
+    func getNoteAttributes() -> EKAttributes {
+        var attributes = EKAttributes.topNote
+        
+        attributes.entryBackground = .color(color: .darkGray)
+        attributes.displayDuration = 10
+        
+        return attributes
+    }
+    
+    func showNote() -> Void {
+        let text = "Copied Successfully"
+        let style = EKProperty.LabelStyle(font: UIFont.systemFont(ofSize: 14), color: .white, alignment: .center)
+        let labelContent = EKProperty.LabelContent(text: text, style: style)
+        
+        let contentView = EKNoteMessageView(with: labelContent)
+        
+        SwiftEntryKit.display(entry: contentView, using: getNoteAttributes())
     }
     
     @IBAction func subtractionInputFocused(_ sender: Any) {

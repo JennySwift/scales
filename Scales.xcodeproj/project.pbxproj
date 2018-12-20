@@ -16,6 +16,8 @@
 		BDE52A8621C755BA001EC7D2 /* ScalesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDE52A8521C755BA001EC7D2 /* ScalesTests.swift */; };
 		BDE52A9121C755BA001EC7D2 /* ScalesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDE52A9021C755BA001EC7D2 /* ScalesUITests.swift */; };
 		BDE52A9F21C7BF2E001EC7D2 /* Foods.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDE52A9E21C7BF2E001EC7D2 /* Foods.swift */; };
+		BDE52AA521CA8BEC001EC7D2 /* SwiftEntryKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BDE52AA421CA8BCE001EC7D2 /* SwiftEntryKit.framework */; };
+		BDE52AB021CA939E001EC7D2 /* QuickLayout.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BDE52AAF21CA939E001EC7D2 /* QuickLayout.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +53,9 @@
 		BDE52A9021C755BA001EC7D2 /* ScalesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScalesUITests.swift; sourceTree = "<group>"; };
 		BDE52A9221C755BA001EC7D2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BDE52A9E21C7BF2E001EC7D2 /* Foods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Foods.swift; sourceTree = "<group>"; };
+		BDE52AA121CA75C4001EC7D2 /* ToastSwiftFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ToastSwiftFramework.framework; path = Carthage/Build/iOS/ToastSwiftFramework.framework; sourceTree = "<group>"; };
+		BDE52AA421CA8BCE001EC7D2 /* SwiftEntryKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftEntryKit.framework; path = Carthage/Build/iOS/SwiftEntryKit.framework; sourceTree = "<group>"; };
+		BDE52AAF21CA939E001EC7D2 /* QuickLayout.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuickLayout.framework; path = Carthage/Build/iOS/QuickLayout.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +63,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BDE52AA521CA8BEC001EC7D2 /* SwiftEntryKit.framework in Frameworks */,
+				BDE52AB021CA939E001EC7D2 /* QuickLayout.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -85,6 +92,7 @@
 				BDE52A8421C755BA001EC7D2 /* ScalesTests */,
 				BDE52A8F21C755BA001EC7D2 /* ScalesUITests */,
 				BDE52A6C21C755B8001EC7D2 /* Products */,
+				BDE52AA021CA75C4001EC7D2 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -131,6 +139,16 @@
 			path = ScalesUITests;
 			sourceTree = "<group>";
 		};
+		BDE52AA021CA75C4001EC7D2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				BDE52AAF21CA939E001EC7D2 /* QuickLayout.framework */,
+				BDE52AA421CA8BCE001EC7D2 /* SwiftEntryKit.framework */,
+				BDE52AA121CA75C4001EC7D2 /* ToastSwiftFramework.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -141,6 +159,7 @@
 				BDE52A6721C755B8001EC7D2 /* Sources */,
 				BDE52A6821C755B8001EC7D2 /* Frameworks */,
 				BDE52A6921C755B8001EC7D2 /* Resources */,
+				BDE52AA321CA768B001EC7D2 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -256,6 +275,28 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		BDE52AA321CA768B001EC7D2 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/SwiftEntryKit.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/QuickLayout.framework",
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n/usr/local/bin/carthage copy-frameworks\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		BDE52A6721C755B8001EC7D2 /* Sources */ = {
@@ -442,6 +483,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = U7YCKVHDFF;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = Scales/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -461,6 +506,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = U7YCKVHDFF;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = Scales/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
