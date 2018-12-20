@@ -51,7 +51,7 @@ class DetailViewController: UIViewController {
         var attributes = EKAttributes.topNote
         
         attributes.entryBackground = .color(color: .darkGray)
-        attributes.displayDuration = 10
+        attributes.displayDuration = 1
         
         return attributes
     }
